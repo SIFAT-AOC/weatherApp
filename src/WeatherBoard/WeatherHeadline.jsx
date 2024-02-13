@@ -1,13 +1,17 @@
+import { useContext } from "react";
 import cluod from "../assets/cloud.svg";
 import pin from "../assets/pin.svg";
+import WeatherContext from "../Context";
 function WeatherHeadline() {
+  const {weatherData, loading, error } =  useContext(WeatherContext);
+const {location , time , temperature , climate } = weatherData;
   return (
     <div>
       <div className="max-md:flex items-center justify-between md:-mt-10">
         <img src={cluod} alt="cloud" />
         <div className="max-md:flex items-center max-md:space-x-4">
           <h1 className="text-[60px] lg:text-[80px] xl:text-[100px] leading-none md:mb-4">
-            16°
+            {temperature}°
           </h1>
           <div className="flex items-center space-x-4 md:mb-4">
             <img src={pin} />
