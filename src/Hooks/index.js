@@ -1,2 +1,2 @@
 import useWeather from "./UseWeather";
-export default useWeather
+export { useWeather };

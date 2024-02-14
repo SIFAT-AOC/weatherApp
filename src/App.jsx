@@ -1,18 +1,18 @@
-import Header from "./Header/Header"
-import WeatherProvider from "./Provider/WeatherProvider"
-import WeatherBoard from "./WeatherBoard/WeatherBoard"
+import Header from "./Header/Header";
+import { useWeather } from "./Hooks";
+import WeatherBoard from "./WeatherBoard/WeatherBoard";
 
 function App() {
+  const { weatherData, loading, error } = useWeather();
+  console.log(weatherData, loading, error);
   return (
-    <WeatherProvider>
     <div className="grid place-items-center h-screen">
-    <Header />
-    <main>
-    <WeatherBoard />
-    </main>
+      <Header />
+      <main>
+        <WeatherBoard />
+      </main>
     </div>
-    </WeatherProvider>
-  )
+  );
 }
 
-export default App
+export default App;
